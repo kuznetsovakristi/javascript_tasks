@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>modal</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div class="container">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet tempore accusantium illo doloremque recusandae,
+      numquam quaerat dolor sed qui quasi aut fugiat incidunt. Nemo, sapiente provident. Fuga quia quidem possimus!</p>
+    <button class="btn" id="openModal">open</button>
+  </div>
+  <!-- <div class="overlay">
+    <div class="modal">
+      <a href="" class="close">x</a>
+      <div class="content">Hellow, <b>world!</b></div>
+    </div> -->
+  </div>
+  <script>
+    const opnBtn = document.querySelector('#openModal');
+    const body = document.body;
+
+    opnBtn.addEventListener('click', e => {
+      const overlay = document.createElement('div');
+      overlay.classList.add('overlay');
+      overlay.addEventListener('click', e => {
+        if (!e.target.classList.contains('content')) {
+          close.click()
+        }
+      })
+
+      const modal = document.createElement('div');
+      modal.classList.add('modal');
+
+      const close = document.createElement('a')
+      close.classList.add('close');
+      close.textContent = 'x';
+      close.href = '#';
+      close.addEventListener('click', e => {
+        e.preventDefault()
+        body.removeChild(overlay)
+      })
+
+      const content = document.createElement('div');
+      content.classList.add('content');
+      content.innerHTML = 'Hello <b>world!</>';
+
+      body.appendChild(overlay);
+      overlay.appendChild(modal);
+      modal.appendChild(close);
+      modal.appendChild(content)
+    })
+  </script>
+</body>
+
+</html>
